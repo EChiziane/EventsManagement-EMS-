@@ -1,7 +1,7 @@
 /* tslint:disable:no-unused-variable */
 
-import { TestBed, inject, waitForAsync } from '@angular/core/testing';
-import { EventoService } from './evento.service';
+import {inject, TestBed} from '@angular/core/testing';
+import {EventoService} from './evento.service';
 
 describe('Service: Evento', () => {
   beforeEach(() => {

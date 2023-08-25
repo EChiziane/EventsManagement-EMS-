@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { EventosComponent } from './eventos.component';
+import {EventosComponent} from './eventos.component';
 
 describe('EventosComponent', () => {
   let component: EventosComponent;
@@ -8,9 +8,9 @@ describe('EventosComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ EventosComponent ]
+      declarations: [EventosComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

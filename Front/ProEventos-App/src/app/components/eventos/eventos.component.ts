@@ -1,9 +1,9 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { ToastrService } from 'ngx-toastr';
-import { NgxSpinnerService } from 'ngx-spinner';
-import { EventoService } from '../../services/evento.service';
-import { Evento } from '../../models/Evento';
+import {Component, OnInit, TemplateRef} from '@angular/core';
+import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
+import {ToastrService} from 'ngx-toastr';
+import {NgxSpinnerService} from 'ngx-spinner';
+import {EventoService} from '../../services/evento.service';
+import {Evento} from '../../models/Evento';
 
 @Component({
   selector: 'app-eventos',
@@ -21,6 +21,14 @@ export class EventosComponent implements OnInit {
   public exibirImagem = true;
   private filtroListado = '';
 
+  constructor(
+    private eventoService: EventoService,
+    private modalService: BsModalService,
+    private toastr: ToastrService,
+    private spinner: NgxSpinnerService
+  ) {
+  }
+
   public get filtroLista(): string {
     return this.filtroListado;
   }
@@ -34,16 +42,9 @@ export class EventosComponent implements OnInit {
     filtrarPor = filtrarPor.toLocaleLowerCase();
     return this.eventos.filter(
       evento => evento.tema.toLocaleLowerCase().indexOf(filtrarPor) !== -1 ||
-      evento.local.toLocaleLowerCase().indexOf(filtrarPor) !== -1
+        evento.local.toLocaleLowerCase().indexOf(filtrarPor) !== -1
     );
   }
-
-  constructor(
-    private eventoService: EventoService,
-    private modalService: BsModalService,
-    private toastr: ToastrService,
-    private spinner: NgxSpinnerService
-  ) { }
 
   public ngOnInit(): void {
     this.spinner.show();
